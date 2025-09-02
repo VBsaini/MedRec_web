@@ -22,7 +22,7 @@ export default function FamilyHistoryPage() {
       setError("");
       try {
         const res = await fetch(
-          `http://localhost:3000/api/records/family-history/${userId}`,
+          `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/records/family-history/${userId}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -48,7 +48,7 @@ export default function FamilyHistoryPage() {
     setSuccess("");
     try {
       const res = await fetch(
-        `http://localhost:3000/api/records/family-history/${userId}`,
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/records/family-history/${userId}`,
         {
           method: "POST",
           headers: {
@@ -122,12 +122,7 @@ export default function FamilyHistoryPage() {
                 {error && (
                   <div className="text-red-500 text-center">{error}</div>
                 )}
-                <button
-                  type="submit"
-                  className="bg-gradient-to-r from-blue-500 to-green-400 text-white font-semibold p-2 rounded shadow hover:from-blue-600 hover:to-green-500 transition"
-                >
-                  Add Family History
-                </button>
+                {/* Removed extra blue add button */}
               </form>
               <div>
                 <h2 className="text-lg font-semibold text-blue-600 mb-2">

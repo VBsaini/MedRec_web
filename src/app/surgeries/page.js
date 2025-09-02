@@ -28,7 +28,7 @@ export default function SurgeriesPage() {
       setError("");
       try {
         const res = await fetch(
-          `http://localhost:3000/api/records/surgery/${userId}`,
+          `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/records/surgery/${userId}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -54,7 +54,7 @@ export default function SurgeriesPage() {
     setSuccess("");
     try {
       const res = await fetch(
-        `http://localhost:3000/api/records/surgery/${userId}`,
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/records/surgery/${userId}`,
         {
           method: "POST",
           headers: {

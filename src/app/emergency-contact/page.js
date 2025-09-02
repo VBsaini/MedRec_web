@@ -26,7 +26,7 @@ export default function EmergencyContactPage() {
       setError("");
       try {
         const res = await fetch(
-          `http://localhost:3000/api/records/emergency-contact/${userId}`,
+          `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/records/emergency-contact/${userId}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -52,7 +52,7 @@ export default function EmergencyContactPage() {
     setSuccess("");
     try {
       const res = await fetch(
-        `http://localhost:3000/api/records/emergency-contact/${userId}`,
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/records/emergency-contact/${userId}`,
         {
           method: "POST",
           headers: {

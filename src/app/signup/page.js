@@ -6,6 +6,7 @@ export default function SignupPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
+  const [alias, setAlias] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const router = useRouter();
@@ -15,15 +16,20 @@ export default function SignupPage() {
     setError("");
     setSuccess("");
     try {
-      const res = await fetch("http://localhost:3000/api/auth/signup", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          email,
-          password,
-          name,
-        }),
-      });
+      console.log({ email, password, name, alias });
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/auth/signup`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            email,
+            password,
+            name,
+            alias,
+          }),
+        }
+      );
       const data = await res.json();
       if (res.ok) {
         setSuccess("Signup successful! Please login.");
@@ -45,6 +51,14 @@ export default function SignupPage() {
           placeholder="Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
+          className="border p-2 rounded"
+          required
+        />
+        <input
+          type="text"
+          placeholder="Alias (unique username)"
+          value={alias}
+          onChange={(e) => setAlias(e.target.value)}
           className="border p-2 rounded"
           required
         />

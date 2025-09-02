@@ -26,7 +26,7 @@ export default function MedicalHistoryPage() {
       setError("");
       try {
         const res = await fetch(
-          `http://localhost:3000/api/records/medical-history/${userId}`,
+          `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/records/medical-history/${userId}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -52,7 +52,7 @@ export default function MedicalHistoryPage() {
     setSuccess("");
     try {
       const res = await fetch(
-        `http://localhost:3000/api/records/medical-history/${userId}`,
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/records/medical-history/${userId}`,
         {
           method: "POST",
           headers: {
@@ -81,19 +81,10 @@ export default function MedicalHistoryPage() {
           ) : error ? (
             <div className="flex flex-col items-center gap-4">
               <div className="text-red-500 text-center">{error}</div>
-              {token && (
-                <button
-                  type="button"
-                  onClick={() =>
-                    document
-                      .getElementById("medical-history-form")
-                      ?.scrollIntoView({ behavior: "smooth" })
-                  }
-                  className="mt-2 bg-blue-600 text-white px-4 py-2 rounded"
-                >
-                  Add Medical History
-                </button>
-              )}
+              {token &&
+                {
+                  /* Removed extra blue add button */
+                }}
             </div>
           ) : (
             <form

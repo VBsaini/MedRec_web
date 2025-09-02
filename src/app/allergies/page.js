@@ -147,6 +147,7 @@ export default function AllergiesPage() {
                 {error && (
                   <div className="text-red-500 text-center">{error}</div>
                 )}
+                {/* Removed extra blue add button */}
                 <button
                   type="submit"
                   className="bg-gradient-to-r from-blue-500 to-green-400 text-white font-semibold p-2 rounded shadow hover:from-blue-600 hover:to-green-500 transition"

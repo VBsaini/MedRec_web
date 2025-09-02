@@ -19,7 +19,7 @@ export default function CompleteProfilePage() {
     try {
       const token = localStorage.getItem("token");
       const res = await fetch(
-        "http://localhost:3000/api/records/user/profile",
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/records/user/profile`,
         {
           method: "PUT",
           headers: {

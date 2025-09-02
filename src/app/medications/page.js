@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 
 export default function MedicationsPage() {
   const { token } = useAuth();
+  const [availableMedications, setAvailableMedications] = useState([]);
   const [medications, setMedications] = useState([]);
   const [form, setForm] = useState({
     name: "",
@@ -15,10 +16,25 @@ export default function MedicationsPage() {
     startDate: "",
     endDate: "",
   });
-
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+
+  useEffect(() => {
+    async function fetchAvailableMedications() {
+      try {
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/records/all-medications`
+        );
+        if (!res.ok) throw new Error("Failed to fetch available medications");
+        const data = await res.json();
+        setAvailableMedications(Array.isArray(data) ? data : []);
+      } catch (err) {
+        // ignore
+      }
+    }
+    fetchAvailableMedications();
+  }, []);
 
   const { userId: ctxUserId } = useAuth();
   const userId =
@@ -31,7 +47,7 @@ export default function MedicationsPage() {
       setError("");
       try {
         const res = await fetch(
-          `http://localhost:3000/api/records/medication/${userId}`,
+          `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/records/medication/${userId}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -57,7 +73,7 @@ export default function MedicationsPage() {
     setSuccess("");
     try {
       const res = await fetch(
-        `http://localhost:3000/api/records/medication/${userId}`,
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/records/medication/${userId}`,
         {
           method: "POST",
           headers: {
@@ -117,14 +133,20 @@ export default function MedicationsPage() {
                 onSubmit={handleSubmit}
                 className="flex flex-col gap-4 mb-6"
               >
-                <input
+                <select
                   name="name"
                   value={form.name}
                   onChange={handleChange}
-                  placeholder="Medication Name"
-                  className="border-b-2 border-blue-200 focus:border-blue-500 p-2 outline-none bg-white rounded text-gray-900 placeholder-gray-500"
-                  style={{ color: "#222", background: "#fff" }}
-                />
+                  className="border p-2 rounded"
+                  required
+                >
+                  <option value="">Select Medication</option>
+                  {availableMedications.map((med) => (
+                    <option key={med._id} value={med.name}>
+                      {med.name}
+                    </option>
+                  ))}
+                </select>
                 <input
                   name="dosage"
                   value={form.dosage}
@@ -211,16 +233,27 @@ export default function MedicationsPage() {
                       </button>
                     </li>
                   )}
-                  {medications.map((m, i) => (
-                    <li
-                      key={i}
-                      className="bg-blue-50 rounded p-2 border border-blue-100"
-                    >
-                      <span className="font-semibold">{m.name}</span> -{" "}
-                      {m.dosage}{" "}
-                      <span className="text-xs text-blue-600">
-                        ({m.frequency})
-                      </span>
+                  {medications.map((med) => (
+                    <li key={med._id} className="border p-2 rounded bg-blue-50">
+                      <div className="font-semibold">{med.name}</div>
+                      <div className="text-sm text-gray-700">
+                        Dosage: {med.dosage}
+                      </div>
+                      <div className="text-sm text-gray-700">
+                        Frequency: {med.frequency}
+                      </div>
+                      <div className="text-sm text-gray-700">
+                        Prescribed By: {med.prescribedBy}
+                      </div>
+                      <div className="text-sm text-gray-700">
+                        Prescribed For: {med.prescribedFor}
+                      </div>
+                      <div className="text-sm text-gray-700">
+                        Start Date: {med.startDate}
+                      </div>
+                      <div className="text-sm text-gray-700">
+                        End Date: {med.endDate}
+                      </div>
                     </li>
                   ))}
                 </ul>
