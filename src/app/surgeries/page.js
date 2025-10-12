@@ -165,7 +165,7 @@ export default function SurgeriesPage() {
                 )}
                 <button
                   type="submit"
-                  className="bg-gradient-to-r from-blue-500 to-green-400 text-white font-semibold p-2 rounded shadow hover:from-blue-600 hover:to-green-500 transition"
+                  className="cool-button text-white font-semibold p-2 rounded shadow hover:from-blue-600 hover:to-green-500 transition"
                 >
                   Add Surgery
                 </button>
@@ -181,7 +181,7 @@ export default function SurgeriesPage() {
                   {surgeries.map((s, i) => (
                     <li
                       key={i}
-                      className="bg-blue-50 rounded p-2 border border-blue-100"
+                      className="bg-blue-50 text-black rounded p-2 border border-blue-100"
                     >
                       <span className="font-semibold">{s.surgeryType}</span> -{" "}
                       {s.hospitalName}{" "}

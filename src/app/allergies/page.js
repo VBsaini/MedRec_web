@@ -27,7 +27,7 @@ export default function AllergiesPage() {
       setError("");
       try {
         const res = await fetch(
-          `http://localhost:3000/api/records/allergy/${userId}`,
+          `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/records/allergy/${userId}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -65,7 +65,7 @@ export default function AllergiesPage() {
     setSuccess("");
     try {
       const res = await fetch(
-        `http://localhost:3000/api/records/allergy/${userId}`,
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/records/allergy/${userId}`,
         {
           method: "POST",
           headers: {
@@ -122,24 +122,24 @@ export default function AllergiesPage() {
                   value={form.allergens}
                   onChange={handleChange}
                   placeholder="Allergens"
-                  className="border-b-2 border-blue-200 focus:border-blue-500 p-2 outline-none bg-white rounded text-gray-900 placeholder-gray-500"
-                  style={{ color: "#222", background: "#fff" }}
+                  className="border-b-2 border-blue-200 focus:border-blue-500 p-2 outline-none bg-white rounded text-black placeholder-black"
+                  style={{ color: "#000", background: "#fff" }}
                 />
                 <input
                   name="reactions"
                   value={form.reactions}
                   onChange={handleChange}
                   placeholder="Reactions"
-                  className="border-b-2 border-blue-200 focus:border-blue-500 p-2 outline-none bg-white rounded text-gray-900 placeholder-gray-500"
-                  style={{ color: "#222", background: "#fff" }}
+                  className="border-b-2 border-blue-200 focus:border-blue-500 p-2 outline-none bg-white rounded text-black placeholder-black"
+                  style={{ color: "#000", background: "#fff" }}
                 />
                 <input
                   name="severity"
                   value={form.severity}
                   onChange={handleChange}
                   placeholder="Severity"
-                  className="border-b-2 border-blue-200 focus:border-blue-500 p-2 outline-none bg-white rounded text-gray-900 placeholder-gray-500"
-                  style={{ color: "#222", background: "#fff" }}
+                  className="border-b-2 border-blue-200 focus:border-blue-500 p-2 outline-none bg-white rounded text-black placeholder-black"
+                  style={{ color: "#000", background: "#fff" }}
                 />
                 {success && (
                   <div className="text-green-600 text-center">{success}</div>
@@ -150,7 +150,7 @@ export default function AllergiesPage() {
                 {/* Removed extra blue add button */}
                 <button
                   type="submit"
-                  className="bg-gradient-to-r from-blue-500 to-green-400 text-white font-semibold p-2 rounded shadow hover:from-blue-600 hover:to-green-500 transition"
+                  className="cool-button text-white font-semibold p-2 rounded shadow hover:from-blue-600 hover:to-green-500 transition"
                 >
                   Add Allergy
                 </button>
@@ -161,7 +161,7 @@ export default function AllergiesPage() {
                 </h2>
                 <ul className="space-y-2">
                   {allergies.length === 0 && (
-                    <li className="text-gray-500 flex flex-col items-center gap-3">
+                    <li className="text-black flex flex-col items-center gap-3">
                       <span>
                         No data yet. Click Add to create your first entry.
                       </span>
@@ -181,7 +181,7 @@ export default function AllergiesPage() {
                   {allergies.map((a, i) => (
                     <li
                       key={i}
-                      className="bg-blue-50 rounded p-2 border border-blue-100"
+                      className="bg-blue-50 text-black rounded p-2 border border-blue-100"
                     >
                       <span className="font-semibold">{a.allergens}</span> -{" "}
                       {a.reactions}{" "}

@@ -105,16 +105,16 @@ export default function FamilyHistoryPage() {
                   value={form.relationship}
                   onChange={handleChange}
                   placeholder="Relationship"
-                  className="border-b-2 border-blue-200 focus:border-blue-500 p-2 outline-none bg-white rounded text-gray-900 placeholder-gray-500"
-                  style={{ color: "#222", background: "#fff" }}
+                  className="border-b-2 border-blue-200 focus:border-blue-500 p-2 outline-none bg-white rounded text-black placeholder-black"
+                  style={{ color: "#000", background: "#fff" }}
                 />
                 <input
                   name="conditions"
                   value={form.conditions}
                   onChange={handleChange}
                   placeholder="Conditions"
-                  className="border-b-2 border-blue-200 focus:border-blue-500 p-2 outline-none bg-white rounded text-gray-900 placeholder-gray-500"
-                  style={{ color: "#222", background: "#fff" }}
+                  className="border-b-2 border-blue-200 focus:border-blue-500 p-2 outline-none bg-white rounded text-black placeholder-black"
+                  style={{ color: "#000", background: "#fff" }}
                 />
                 {success && (
                   <div className="text-green-600 text-center">{success}</div>
@@ -130,7 +130,7 @@ export default function FamilyHistoryPage() {
                 </h2>
                 <ul className="space-y-2">
                   {family.length === 0 && (
-                    <li className="text-gray-500 flex flex-col items-center gap-3">
+                    <li className="text-black flex flex-col items-center gap-3">
                       <span>
                         No data yet. Click Add to create your first entry.
                       </span>
@@ -150,7 +150,7 @@ export default function FamilyHistoryPage() {
                   {family.map((f, i) => (
                     <li
                       key={i}
-                      className="bg-blue-50 rounded p-2 border border-blue-100"
+                      className="bg-blue-50 text-black rounded p-2 border border-blue-100"
                     >
                       <span className="font-semibold">{f.relationship}</span>:{" "}
                       {f.conditions}

@@ -97,12 +97,12 @@ export default function MedicalHistoryPage() {
                 value={history?.past_illnesses || ""}
                 onChange={handleChange}
                 placeholder="Past Illnesses"
-                className="border-b-2 border-blue-200 focus:border-blue-500 p-2 outline-none bg-white rounded min-h-[60px] text-gray-900 placeholder-gray-500"
-                style={{ color: "#222", background: "#fff" }}
+                className="border-b-2 border-blue-200 focus:border-blue-500 p-2 outline-none bg-white rounded min-h-[60px] text-black placeholder-black"
+                style={{ color: "#000", background: "#fff" }}
               />
               {(!history || !history.past_illnesses) && (
                 <div className="flex flex-col items-center gap-3">
-                  <span className="text-gray-500">
+                  <span className="text-black">
                     No data yet. Click Add to create your first entry.
                   </span>
                   <button
@@ -125,7 +125,7 @@ export default function MedicalHistoryPage() {
               {error && <div className="text-red-500 text-center">{error}</div>}
               <button
                 type="submit"
-                className="bg-gradient-to-r from-blue-500 to-green-400 text-white font-semibold p-2 rounded shadow hover:from-blue-600 hover:to-green-500 transition"
+                className="cool-button text-white font-semibold p-2 rounded shadow hover:from-blue-600 hover:to-green-500 transition"
               >
                 Save Changes
               </button>

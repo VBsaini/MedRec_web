@@ -133,51 +133,46 @@ export default function MedicationsPage() {
                 onSubmit={handleSubmit}
                 className="flex flex-col gap-4 mb-6"
               >
-                <select
+                <input
                   name="name"
                   value={form.name}
                   onChange={handleChange}
-                  className="border p-2 rounded"
+                  placeholder="Medication Name"
+                  className="border-b-2 border-blue-200 focus:border-blue-500 p-2 outline-none bg-white rounded text-black placeholder-black"
+                  style={{ color: "#000", background: "#fff" }}
                   required
-                >
-                  <option value="">Select Medication</option>
-                  {availableMedications.map((med) => (
-                    <option key={med._id} value={med.name}>
-                      {med.name}
-                    </option>
-                  ))}
-                </select>
+                />
                 <input
                   name="dosage"
                   value={form.dosage}
                   onChange={handleChange}
                   placeholder="Dosage"
-                  className="border-b-2 border-blue-200 focus:border-blue-500 p-2 outline-none bg-white rounded text-gray-900 placeholder-gray-500"
-                  style={{ color: "#222", background: "#fff" }}
+                  className="border-b-2 border-blue-200 focus:border-blue-500 p-2 outline-none bg-white rounded text-black placeholder-black"
+                  style={{ color: "#000", background: "#fff" }}
                 />
                 <input
                   name="frequency"
                   value={form.frequency}
                   onChange={handleChange}
                   placeholder="Frequency"
-                  className="border-b-2 border-blue-200 focus:border-blue-500 p-2 outline-none bg-white rounded text-gray-900 placeholder-gray-500"
-                  style={{ color: "#222", background: "#fff" }}
+                  className="border-b-2 border-blue-200 focus:border-blue-500 p-2 outline-none bg-white rounded text-black placeholder-black"
+                  style={{ color: "#000", background: "#fff" }}
                 />
                 <input
                   name="prescribedBy"
                   value={form.prescribedBy}
                   onChange={handleChange}
                   placeholder="Prescribed By"
-                  className="border-b-2 border-blue-200 focus:border-blue-500 p-2 outline-none bg-white rounded text-gray-900 placeholder-gray-500"
-                  style={{ color: "#222", background: "#fff" }}
+                  className="border-b-2 border-blue-200 focus:border-blue-500 p-2 outline-none bg-white rounded text-black placeholder-black"
+                  style={{ color: "#000", background: "#fff" }}
                 />
                 <input
                   name="prescribedFor"
                   value={form.prescribedFor}
                   onChange={handleChange}
                   placeholder="Prescribed For"
-                  className="border-b-2 border-blue-200 focus:border-blue-500 p-2 outline-none bg-white rounded text-gray-900 placeholder-gray-500"
-                  style={{ color: "#222", background: "#fff" }}
+                  className="border-b-2 border-blue-200 focus:border-blue-500 p-2 outline-none bg-white rounded text-black placeholder-black"
+                  style={{ color: "#000", background: "#fff" }}
                 />
                 <input
                   name="startDate"
@@ -185,8 +180,8 @@ export default function MedicationsPage() {
                   onChange={handleChange}
                   placeholder="Start Date"
                   type="date"
-                  className="border-b-2 border-blue-200 focus:border-blue-500 p-2 outline-none bg-white rounded text-gray-900 placeholder-gray-500"
-                  style={{ color: "#222", background: "#fff" }}
+                  className="border-b-2 border-blue-200 focus:border-blue-500 p-2 outline-none bg-white rounded text-black placeholder-black"
+                  style={{ color: "#000", background: "#fff" }}
                 />
                 <input
                   name="endDate"
@@ -194,8 +189,8 @@ export default function MedicationsPage() {
                   onChange={handleChange}
                   placeholder="End Date"
                   type="date"
-                  className="border-b-2 border-blue-200 focus:border-blue-500 p-2 outline-none bg-white rounded text-gray-900 placeholder-gray-500"
-                  style={{ color: "#222", background: "#fff" }}
+                  className="border-b-2 border-blue-200 focus:border-blue-500 p-2 outline-none bg-white rounded text-black placeholder-black"
+                  style={{ color: "#000", background: "#fff" }}
                 />
                 {success && (
                   <div className="text-green-600 text-center">{success}</div>
@@ -205,7 +200,7 @@ export default function MedicationsPage() {
                 )}
                 <button
                   type="submit"
-                  className="bg-gradient-to-r from-blue-500 to-green-400 text-white font-semibold p-2 rounded shadow hover:from-blue-600 hover:to-green-500 transition"
+                  className="cool-button text-white font-semibold p-2 rounded shadow hover:from-blue-600 hover:to-green-500 transition"
                 >
                   Add Medication
                 </button>
@@ -216,7 +211,7 @@ export default function MedicationsPage() {
                 </h2>
                 <ul className="space-y-2">
                   {medications.length === 0 && (
-                    <li className="text-gray-500 flex flex-col items-center gap-3">
+                    <li className="text-black flex flex-col items-center gap-3">
                       <span>
                         No data yet. Click Add to create your first entry.
                       </span>
@@ -236,22 +231,22 @@ export default function MedicationsPage() {
                   {medications.map((med) => (
                     <li key={med._id} className="border p-2 rounded bg-blue-50">
                       <div className="font-semibold">{med.name}</div>
-                      <div className="text-sm text-gray-700">
+                      <div className="text-sm text-black">
                         Dosage: {med.dosage}
                       </div>
-                      <div className="text-sm text-gray-700">
+                      <div className="text-sm text-black">
                         Frequency: {med.frequency}
                       </div>
-                      <div className="text-sm text-gray-700">
+                      <div className="text-sm text-black">
                         Prescribed By: {med.prescribedBy}
                       </div>
-                      <div className="text-sm text-gray-700">
+                      <div className="text-sm text-black">
                         Prescribed For: {med.prescribedFor}
                       </div>
-                      <div className="text-sm text-gray-700">
+                      <div className="text-sm text-black">
                         Start Date: {med.startDate}
                       </div>
-                      <div className="text-sm text-gray-700">
+                      <div className="text-sm text-black">
                         End Date: {med.endDate}
                       </div>
                     </li>

@@ -22,7 +22,7 @@ export default function ProfilePage() {
       setError("");
       try {
         const res = await fetch(
-          `http://localhost:3000/api/records/user/${userId}/profile`,
+          `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/records/user/${userId}/profile`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -48,7 +48,7 @@ export default function ProfilePage() {
     setSuccess("");
     try {
       const res = await fetch(
-        `http://localhost:3000/api/records/user/${userId}/profile`,
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/records/user/${userId}/profile`,
         {
           method: "POST",
           headers: {
@@ -83,7 +83,7 @@ export default function ProfilePage() {
                 value={profile?.name || ""}
                 onChange={handleChange}
                 placeholder="Name"
-                className="border-b-2 border-blue-200 focus:border-blue-500 p-2 outline-none bg-blue-50 rounded"
+                className="border-b-2 text-black border-blue-200 focus:border-blue-500 p-2 outline-none bg-blue-50 rounded"
               />
               <input
                 name="age"
@@ -91,21 +91,21 @@ export default function ProfilePage() {
                 onChange={handleChange}
                 placeholder="Age"
                 type="number"
-                className="border-b-2 border-blue-200 focus:border-blue-500 p-2 outline-none bg-blue-50 rounded"
+                className="border-b-2 text-black border-blue-200 focus:border-blue-500 p-2 outline-none bg-blue-50 rounded"
               />
               <input
                 name="gender"
                 value={profile?.gender || ""}
                 onChange={handleChange}
                 placeholder="Gender"
-                className="border-b-2 border-blue-200 focus:border-blue-500 p-2 outline-none bg-blue-50 rounded"
+                className="border-b-2 text-black border-blue-200 focus:border-blue-500 p-2 outline-none bg-blue-50 rounded"
               />
               <input
                 name="blood_group"
                 value={profile?.blood_group || ""}
                 onChange={handleChange}
                 placeholder="Blood Group"
-                className="border-b-2 border-blue-200 focus:border-blue-500 p-2 outline-none bg-blue-50 rounded"
+                className="border-b-2 text-black border-blue-200 focus:border-blue-500 p-2 outline-none bg-blue-50 rounded"
               />
               <input
                 name="height"
@@ -113,7 +113,7 @@ export default function ProfilePage() {
                 onChange={handleChange}
                 placeholder="Height (cm)"
                 type="number"
-                className="border-b-2 border-blue-200 focus:border-blue-500 p-2 outline-none bg-blue-50 rounded"
+                className="border-b-2 text-black border-blue-200 focus:border-blue-500 p-2 outline-none bg-blue-50 rounded"
               />
               <input
                 name="weight"
@@ -121,7 +121,7 @@ export default function ProfilePage() {
                 onChange={handleChange}
                 placeholder="Weight (kg)"
                 type="number"
-                className="border-b-2 border-blue-200 focus:border-blue-500 p-2 outline-none bg-blue-50 rounded"
+                className="border-b-2 text-black border-blue-200 focus:border-blue-500 p-2 outline-none bg-blue-50 rounded"
               />
               {success && (
                 <div className="text-green-600 text-center">{success}</div>
@@ -140,7 +140,7 @@ export default function ProfilePage() {
 
               <button
                 type="submit"
-                className="bg-gradient-to-r from-blue-500 to-green-400 text-white font-semibold p-2 rounded shadow hover:from-blue-600 hover:to-green-500 transition"
+                className="cool-button text-white font-semibold p-2 rounded shadow hover:from-blue-600 hover:to-green-500 transition"
               >
                 Save Changes
               </button>

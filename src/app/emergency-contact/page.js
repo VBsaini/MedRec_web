@@ -111,24 +111,24 @@ export default function EmergencyContactPage() {
                   value={form.name}
                   onChange={handleChange}
                   placeholder="Name"
-                  className="border-b-2 border-blue-200 focus:border-blue-500 p-2 outline-none bg-white rounded text-gray-900 placeholder-gray-500"
-                  style={{ color: "#222", background: "#fff" }}
+                  className="border-b-2 border-blue-200 focus:border-blue-500 p-2 outline-none bg-white rounded text-black placeholder-black"
+                  style={{ color: "#000", background: "#fff" }}
                 />
                 <input
                   name="phone_number"
                   value={form.phone_number}
                   onChange={handleChange}
                   placeholder="Phone Number"
-                  className="border-b-2 border-blue-200 focus:border-blue-500 p-2 outline-none bg-white rounded text-gray-900 placeholder-gray-500"
-                  style={{ color: "#222", background: "#fff" }}
+                  className="border-b-2 border-blue-200 focus:border-blue-500 p-2 outline-none bg-white rounded text-black placeholder-black"
+                  style={{ color: "#000", background: "#fff" }}
                 />
                 <input
                   name="relationship"
                   value={form.relationship}
                   onChange={handleChange}
                   placeholder="Relationship"
-                  className="border-b-2 border-blue-200 focus:border-blue-500 p-2 outline-none bg-white rounded text-gray-900 placeholder-gray-500"
-                  style={{ color: "#222", background: "#fff" }}
+                  className="border-b-2 border-blue-200 focus:border-blue-500 p-2 outline-none bg-white rounded text-black placeholder-black"
+                  style={{ color: "#000", background: "#fff" }}
                 />
                 {success && (
                   <div className="text-green-600 text-center">{success}</div>
@@ -138,7 +138,7 @@ export default function EmergencyContactPage() {
                 )}
                 <button
                   type="submit"
-                  className="bg-gradient-to-r from-blue-500 to-green-400 text-white font-semibold p-2 rounded shadow hover:from-blue-600 hover:to-green-500 transition"
+                  className="cool-button text-white font-semibold p-2 rounded shadow hover:from-blue-600 hover:to-green-500 transition"
                 >
                   Add Contact
                 </button>
@@ -167,7 +167,7 @@ export default function EmergencyContactPage() {
                   {contacts.map((c, i) => (
                     <li
                       key={i}
-                      className="bg-blue-50 rounded p-2 border border-blue-100"
+                      className="bg-blue-50 text-black rounded p-2 border border-blue-100"
                     >
                       <span className="font-semibold">{c.name}</span> -{" "}
                       {c.phone_number}{" "}

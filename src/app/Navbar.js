@@ -68,8 +68,22 @@ export default function Navbar() {
             >
               Medications
             </Link>
+            <Link
+              href="/visitors"
+              className="text-blue-700/90 hover:text-green-500 transition-colors duration-300 px-2 py-1 rounded hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-blue-200"
+            >
+              Access Log
+            </Link>
           </>
         )}
+      </div>
+      <div className="flex items-center gap-2">
+        <Link
+          href="/access-record"
+          className="text-blue-700/90 hover:text-green-500 transition-colors duration-300 px-2 py-1 rounded hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-blue-200"
+        >
+          Access Records
+        </Link>
       </div>
       <div>
         {token ? (
